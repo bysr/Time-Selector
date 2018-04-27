@@ -1,5 +1,6 @@
 package org.feezu.liuli.timeselector.Utils;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -48,6 +49,19 @@ public class DateUtil {
         return (returnValue);
     }
 
+    /**
+     * 获取当前时间
+     *
+     * @param format
+     * @return
+     */
+    public static String getNowString(String format) {
+        return millis2String(System.currentTimeMillis(), new SimpleDateFormat(format));
+    }
+
+    public static String millis2String(final long millis, final DateFormat format) {
+        return format.format(new Date(millis));
+    }
 
 
 }
