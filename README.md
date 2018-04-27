@@ -30,7 +30,8 @@ dependencies {
 ```
 
 1. 设置开始、结束时间和展示时间，默认展示时间为结束时间
-```
+
+```javascript
     timeSelector1 = new TimeSelector1(MainActivity.this);
         timeSelector1.startData("2015-09-25 00:00:00")
                 .endData("2018-10-25 00:16:00")
@@ -47,7 +48,7 @@ dependencies {
 ```
 
 2. 如果不设置时间，显示2000年至今的时间表
-```
+```javascript
     timeSelector2 = new TimeSelector1(MainActivity.this);
         timeSelector2.build(new TimeSelector1.ResultHandler() {
             @Override
