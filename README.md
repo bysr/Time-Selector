@@ -29,7 +29,7 @@ dependencies {
 
 ```
 
-1. 设置开始时间、结束时间以及展示时间，默认展示时间为结束时间
+1. 设置开始、结束时间和展示时间，默认展示时间为结束时间
 ```
     timeSelector1 = new TimeSelector1(MainActivity.this);
         timeSelector1.startData("2015-09-25 00:00:00")
