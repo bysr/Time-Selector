@@ -10,7 +10,28 @@
 
 
 
-使用：
+使用： 
+>Android Studio中直接在 gradle中加入(1.1.5版本)：
+
+```javascript
+
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+
+dependencies {
+	        compile 'com.github.bysr:Time-Selector:1.1.5'
+	}
+
+```
+1. 方式1
+
+
+
 >Android Studio中直接在 gradle中加入：
 ```javascript
 compile 'com.feezu.liuli:timeselector:1.1.3+' 
