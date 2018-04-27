@@ -28,11 +28,45 @@ dependencies {
 	}
 
 ```
-1. 方式1
+
+1. 使用方案1,设置开始时间、结束时间以及展示时间，默认展示时间为结束时间
+```
+    timeSelector1 = new TimeSelector1(MainActivity.this);
+        timeSelector1.startData("2015-09-25 00:00:00")
+                .endData("2018-10-25 00:16:00")
+                        .showTime("2017-01-05 00:00:00")
+                .build(new TimeSelector1.ResultHandler() {
+                    @Override
+                    public void handle(String time) {
+                        Toast.makeText(MainActivity.this, time, Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+        timeSelector1.setMode(TimeSelector1.MODE.YMDHMS).setIsLoop(true);
+        timeSelector1.show();
+```
+
+2. 如果不设置时间，显示2000年至今的时间表
+```
+    timeSelector2 = new TimeSelector1(MainActivity.this);
+        timeSelector2.build(new TimeSelector1.ResultHandler() {
+            @Override
+            public void handle(String time) {
+                Toast.makeText(MainActivity.this, time, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        timeSelector2.setMode(TimeSelector1.MODE.YMDHMS).setIsLoop(true);
+        timeSelector2.show();
+```
 
 
 
->Android Studio中直接在 gradle中加入：
+---
+
+
+
+>Android Studio中直接在 gradle中加入（作者使用方案）：
 ```javascript
 compile 'com.feezu.liuli:timeselector:1.1.3+' 
 ```
