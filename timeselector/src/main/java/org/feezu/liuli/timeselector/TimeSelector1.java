@@ -40,11 +40,12 @@ public class TimeSelector1 {
     }
 
     public enum MODE {
-
+        YM(0),
         YMD(1),
         YMDHM(2),
         YMDHMS(3),
         HMS(4);
+
 
 
         MODE(int value) {
@@ -133,6 +134,7 @@ public class TimeSelector1 {
         this.showData = showTime;
         return this;
     }
+
 
     public TimeSelector1(Context context) {
         this.context = context;
@@ -687,6 +689,17 @@ public class TimeSelector1 {
 
     public TimeSelector1 setMode(MODE mode) {
         switch (mode.value) {
+            case 0:
+                disScrollUnit();
+                day_pv.setVisibility(View.GONE);
+                hour_pv.setVisibility(View.GONE);
+                minute_pv.setVisibility(View.GONE);
+                second_pv.setVisibility(View.GONE);
+                day_text.setVisibility(View.GONE);
+                hour_text.setVisibility(View.GONE);
+                minute_text.setVisibility(View.GONE);
+                second_text.setVisibility(View.GONE);
+
             case 1:
                 disScrollUnit(SCROLLTYPE.HOUR, SCROLLTYPE.MINUTE);
                 hour_pv.setVisibility(View.GONE);

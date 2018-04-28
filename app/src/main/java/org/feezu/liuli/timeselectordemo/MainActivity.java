@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-        timeSelector1.setMode(TimeSelector1.MODE.YMDHMS).setIsLoop(true);
+        timeSelector1.setMode(TimeSelector1.MODE.YM).setIsLoop(true);
         timeSelector1.show();
     }
 
