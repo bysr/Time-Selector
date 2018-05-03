@@ -280,39 +280,70 @@ public class TimeSelector1 {
                 //year保存当前展示年份
                 year.add(String.valueOf(i));
             }
-            for (int i = 1; i <= showMonth; i++) {
+            for (int i = 1; i <= endMonth; i++) {
                 //加载当前展示月份
                 month.add(fomatTimeUnit(i));
             }
-            /*通过当前展示月份获取天数信息*/
-            for (int i = 1; i <= showDay; i++) {
-                day.add(fomatTimeUnit(i));
-            }
-            if ((scrollUnits & SCROLLTYPE.HOUR.value) != SCROLLTYPE.HOUR.value) {
-                hour.add(fomatTimeUnit(0));
+            /*同一月，展示最终月份日期*/
+            if (endMonth == showMonth) {
+                for (int i = 1; i <= endDay; i++) {
+                    day.add(fomatTimeUnit(i));
+                }
             } else {
-                /*加载保存小时数*/
-                for (int i = 0; i <= showHour; i++) {
-                    hour.add(fomatTimeUnit(i));
+                for (int i = 1; i <= showCalendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
+                    day.add(fomatTimeUnit(i));
                 }
             }
+            /*同一天*/
+            if (endDay == showDay) {
+                for (int i = 0; i <= endHour; i++) {
+                    hour.add(fomatTimeUnit(i));
+                }
+            } else {
+                if ((scrollUnits & SCROLLTYPE.HOUR.value) != SCROLLTYPE.HOUR.value) {
+                    hour.add(fomatTimeUnit(0));
+                } else {
+                    for (int i = 0; i <= MAXHOUR; i++) {
+                        hour.add(fomatTimeUnit(i));
+                    }
+                }
 
+            }
+            /*同一个小时*/
+//            if (endHour == showHour) {
+//                for (int i = 0; i <= endMininute; i++) {
+//                    minute.add(fomatTimeUnit(i));
+//                }
+//            } else {
             if ((scrollUnits & SCROLLTYPE.MINUTE.value) != SCROLLTYPE.MINUTE.value) {
                 minute.add(fomatTimeUnit(0));
             } else {
                 /*加载保存分钟数*/
-                for (int i = 0; i <= showMininute; i++) {
+                for (int i = 0; i <= MAXMINUTE; i++) {
                     minute.add(fomatTimeUnit(i));
                 }
             }
+//            }
+
+            /*同一分钟*/
+
+//            if (endMininute == showMininute) {
+//                for (int i = 0; i <= endSecond; i++) {
+//                    second.add(fomatTimeUnit(i));
+//                }
+//
+//            } else {
+
             if ((scrollUnits & SCROLLTYPE.SECOND.value) != SCROLLTYPE.SECOND.value) {
                 second.add(fomatTimeUnit(0));
             } else {
                  /*加载保存分钟数*/
-                for (int i = 0; i <= showSecond; i++) {
+                for (int i = 0; i <= MAXSECONED; i++) {
                     second.add(fomatTimeUnit(i));
                 }
-            }
+                }
+//            }
+
 
             //
         } else if (showYear != startYear && spanYear) {
